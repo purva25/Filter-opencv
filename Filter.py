@@ -13,26 +13,18 @@ def main():
 
     st.set_page_config(layout="wide")
 
-    font_css = """
-    <style>
-    button[data-baseweb="tab"] {
-    font-size: 26px;
-    }
-    </style>
-    """
-
-    st.write(font_css, unsafe_allow_html=True)
-
-    tabs = st.tabs(('Average Filter', 'Median Filter', 'Gaussian Filter', 'Salt & Pepper Noise'))
-
-    # UI Options  
-    with tabs[0]:
+   options = st.selectbox(
+        'Choose: ',
+        ('Average Filter','Median Filter','Gaussian Filter','Salt and Pepper Filter'),
+        key="main_menu"
+    )
+    if tabs == 'Average Filter':
         averageFilter()
-    with tabs[1]:
+    if tabs == 'Median Filter':
         medianFilter()
-    with tabs[2]:
+    if tabs == 'Gaussian Filter':
         gaussianFilter()
-    with tabs[3]:
+    if tabs == 'Salt and Pepper Filter':
         saltNpepper()
 
 # Pre-process Image
@@ -47,7 +39,7 @@ def preProcessImg(img):
 # Upload Image
 def uploadImage(key):
 
-    uploaded_file = st.file_uploader("Choose a Image file",key=key)
+    uploaded_file = st.file_uploader("upload Image file",key=key)
     if uploaded_file is not None:
         file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
         img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
@@ -56,7 +48,7 @@ def uploadImage(key):
         # Pre-processing image: resize image
         return preProcessImg(img)
     
-    return cv2.cvtColor(preProcessImg(cv2.imread('sample.jpg')),cv2.COLOR_BGR2RGB)
+    return cv2.cvtColor(preProcessImg(cv2.imread('testimg.jpg')),cv2.COLOR_BGR2RGB)
 
 # Average Filter 
 
