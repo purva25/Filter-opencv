@@ -18,13 +18,13 @@ def main():
         ('Average Filter','Median Filter','Gaussian Filter','Salt and Pepper Filter'),
         key="main_menu"
     )
-    if tabs == 'Average Filter':
+    if options == 'Average Filter':
         averageFilter()
-    if tabs == 'Median Filter':
+    if options == 'Median Filter':
         medianFilter()
-    if tabs == 'Gaussian Filter':
+    if options == 'Gaussian Filter':
         gaussianFilter()
-    if tabs == 'Salt and Pepper Filter':
+    if options == 'Salt and Pepper Filter':
         saltNpepper()
 
 # Pre-process Image
