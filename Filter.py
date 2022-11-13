@@ -216,7 +216,7 @@ def add_noise(img):
 
 def saltNpepper():
 
-    st.header("Gaussian Filter")
+    st.header("Salt and Pepper Filter")
 
     img = uploadImage(3)
 
