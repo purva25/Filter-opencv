@@ -11,7 +11,7 @@ import os
 
 def main():
 
-    st.set_page_config(layout="wide")
+   st.set_page_config(layout="wide")
 
    options = st.selectbox(
         'Choose: ',
