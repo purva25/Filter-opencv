@@ -10,21 +10,20 @@ import os
 # Home UI 
 
 def main():
-
+   
    st.set_page_config(layout="wide")
-
    options = st.selectbox(
         'Choose: ',
         ('Average Filter','Median Filter','Gaussian Filter','Salt and Pepper Filter'),
         key="main_menu"
     )
-    if options == 'Average Filter':
+   if options == 'Average Filter':
         averageFilter()
-    if options == 'Median Filter':
+   if options == 'Median Filter':
         medianFilter()
-    if options == 'Gaussian Filter':
+   if options == 'Gaussian Filter':
         gaussianFilter()
-    if options == 'Salt and Pepper Filter':
+   if options == 'Salt and Pepper Filter':
         saltNpepper()
 
 # Pre-process Image
